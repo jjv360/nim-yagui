@@ -24,7 +24,7 @@ startApp:
     window.y = 200
     window.width = 450
     window.height = 600
-    window.backgroundColor = "#333"
+    # window.backgroundColor = "#333"
     window.events.addListener("close"): yagui.exitApp()
     window.show()
 
@@ -33,6 +33,11 @@ startApp:
     buttonAlert.title = "Alert dialogs"
     buttonAlert.x = 20
     buttonAlert.y = 20
-    buttonAlert.width = window.width - 40
+    buttonAlert.width = window.width - 60
     buttonAlert.height = 40
+    buttonAlert.events.addListener("press"):
+        if confirm("What's your answer?", "Question"):
+            alert("You said YES!", "Alert!")
+        else:
+            alert("You said NO!", "Alert!")
     window.add(buttonAlert)

@@ -5,13 +5,13 @@ import strutils
 
 ##
 ## Generic Component which can be added to the view heirarchy
-class Component:
+class BaseComponent:
 
     ## Parent component
-    var parent : Component = nil
+    var parent : BaseComponent = nil
 
     ## Child components
-    var children : seq[Component]
+    var children : seq[BaseComponent]
 
     ## Position and size
     var x = 0.0
@@ -20,7 +20,7 @@ class Component:
     var height = 0.0
 
     ## Background color
-    var backgroundColor: ColorAlpha = colTransparent
+    var backgroundColor: ColorAlpha = colDefault
 
     ## Event emitter
     var events: EventEmitter = EventEmitter.init()
@@ -37,7 +37,7 @@ class Component:
 
 
     ## Add child component
-    method add(child: Component) =
+    method add(child: BaseComponent) =
 
         # Check if it already has a parent
         if child.parent == this:
@@ -54,7 +54,7 @@ class Component:
 
 
     ## Remove a child
-    method remove(child: Component) =
+    method remove(child: BaseComponent) =
 
         # Stop if not our child
         if child.parent != this:

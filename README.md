@@ -16,9 +16,9 @@ Feature                     | Win32 | MacOS | Ubuntu    | JS
 ----------------------------|-------|-------|-----------|--------
 **General**                 |
 Alert and confirm dialog    | ✔️   |       |           |
-System tray icon            | ✔️   |       |           |
-Context menu                | ✔️   |       |           |
 Timers                      | ✔️   |       |           |
 **Components**              |
-Window                      | 🚧   |       |           |
 Button                      | 🚧   |       |           |
+Context menu                | ✔️   |       |           |
+System tray icon            | ✔️   |       |           |
+Window                      | 🚧   |       |           |

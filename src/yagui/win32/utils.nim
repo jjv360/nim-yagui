@@ -4,7 +4,7 @@
 import classes
 import winim except COMPONENT, GROUP, BUTTON
 import tables
-import ../global/component
+import ../global/basecomponent
 
 ## List of all active windows
 var activeHWNDs: Table[HWND, RootRef]
@@ -34,7 +34,7 @@ proc registerWindowClass*(): string =
 
 
 ## Base class for any component which uses a Win32 Window and needs to receive window events
-class WindowHwndHandler of Component:
+class WindowHwndHandler of BaseComponent:
 
     ## The HWND of this item
     var hwnd : HWND = 0
@@ -139,6 +139,7 @@ class WindowHwndHandler of Component:
             let componentHwnd = lParam.HWND()
             let component = activeHWNDs.getOrDefault(componentHwnd, nil).WindowHwndHandler()
             if component == nil:
+                echo "[YaGUI] Warning: Received WM_COMMAND for an unknown control. controlHwnd=" & $componentHwnd
                 return DefWindowProc(hwnd, uMsg, wParam, lParam)
 
             # Found it, pass it on
@@ -150,7 +151,7 @@ class WindowHwndHandler of Component:
             return DefWindowProc(hwnd, uMsg, wParam, lParam)
 
 
-    ## WndProc callback
+    ## WndProc callback for controls
     method controlWndProc(hwnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM): LRESULT =
 
         # Unknown message, let the system handle it in the default way

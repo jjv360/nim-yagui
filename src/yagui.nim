@@ -2,10 +2,10 @@
 # This library provides GUI components for Nim apps to use.
 
 # Platform-independent classes
-import yagui/global/component
+import yagui/global/basecomponent
 import yagui/global/colorutils
 import yagui/global/eventutils
-export component, colorutils, eventutils
+export basecomponent, colorutils, eventutils
 
 # Win32 classes
 when defined(win32):

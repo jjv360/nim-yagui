@@ -48,9 +48,9 @@ class Window of WindowHwndHandler:
         if uMsg == WM_PAINT:
 
             # Get background color as an HBRUSH
-            var brushColor = COLOR_WINDOW+1
-            if int64(this.backgroundColor) >= 0: brushColor = int(this.backgroundColor) and 0x00FFFFFF
-            let brush = CreateSolidBrush((COLORREF) brushColor)
+            var brush = COLOR_WINDOW+1
+            if int64(this.backgroundColor) >= 0: 
+                CreateSolidBrush((COLORREF) int(this.backgroundColor) and 0x00FFFFFF)
             
             # Paint the background color onto the window
             var ps: PAINTSTRUCT
