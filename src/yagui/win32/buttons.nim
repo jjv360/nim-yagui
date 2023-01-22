@@ -1,6 +1,6 @@
 import classes
 import ./utils
-import winim except COMPONENT, GROUP, BUTTON
+import winim/lean except COMPONENT, GROUP, BUTTON
 import ../global/eventutils
 
 ##
@@ -8,7 +8,12 @@ import ../global/eventutils
 class Button of WindowHwndHandler:
 
     ## Button title
-    var title = "Button"
+    # var title = "Button"
+    var p_title = "Button"
+    method title(): string = this.p_title
+    method `title=`(v: string) =
+        this.p_title = v
+        this.performSystemUpdate()
 
     ## Create the button
     method createHwnd(): HWND =
@@ -34,6 +39,14 @@ class Button of WindowHwndHandler:
             0,                              # Instance handle
             cast[pointer](this)             # Additional application data is a pointer to our class instance ... used by wndProcProxy
         )
+
+
+    ## Update the button
+    method updateHwnd() =
+        super.updateHwnd()
+
+        # Update title
+        SetWindowText(this.hwnd, L(this.title))
 
 
     ## WndProc callback for controls

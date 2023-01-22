@@ -2,7 +2,7 @@
 ## Utility functions for Win32
 
 import classes
-import winim except COMPONENT, GROUP, BUTTON
+import winim/lean except COMPONENT, GROUP, BUTTON
 import tables
 import ../global/basecomponent
 
@@ -26,6 +26,7 @@ proc registerWindowClass*(): string =
     wc.lpfnWndProc = wndProcProxy
     wc.hInstance = 0
     wc.lpszClassName = WindowClassName
+    wc.style = CS_HREDRAW or CS_VREDRAW
     RegisterClass(wc)
 
     # Done

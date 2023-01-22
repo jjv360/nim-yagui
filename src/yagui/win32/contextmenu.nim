@@ -1,4 +1,4 @@
-import winim except COMPONENT, GROUP, BUTTON
+import winim/lean except COMPONENT, GROUP, BUTTON
 import classes
 import sequtils
 import ./utils

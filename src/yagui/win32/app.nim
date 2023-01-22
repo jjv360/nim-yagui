@@ -1,7 +1,7 @@
 #
 # Core functions for the main app
 
-import winim except COMPONENT, GROUP, BUTTON
+import winim/lean except COMPONENT, GROUP, BUTTON
 import ./timers
 import asyncdispatch
 

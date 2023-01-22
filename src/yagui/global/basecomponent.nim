@@ -91,6 +91,10 @@ class BaseComponent:
     method onSystemUpdate() = discard
 
 
+    ## Push field changes to the system
+    method update() = this.performSystemUpdate()
+
+
     ## Make the component visible
     method show() = this.setVisible(true)
 

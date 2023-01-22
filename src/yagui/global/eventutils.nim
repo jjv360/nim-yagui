@@ -52,6 +52,7 @@ class EventEmitter:
     method removeListener(eventName: string, callback: proc(event: Event)) =
 
         # Stop if group doesn't exist
+        echo "REMOVING"
         if not this.eventsMap.hasKey(eventName):
             return
 

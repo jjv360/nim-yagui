@@ -1,6 +1,6 @@
 import classes
 import ../global/baseimage
-import winim except COMPONENT, GROUP, BUTTON
+import winim/lean except COMPONENT, GROUP, BUTTON
 
 ##
 ## Represents an Image resource
